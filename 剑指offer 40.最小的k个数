@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    //原题不需去重
+        var getLeastNumbers = function (arr, k) {
+            var newArr = [];
+            var arr2 = [];
+            //去重
+            for (var i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i]);
+                }
+                continue;
+
+            }
+            console.log(newArr);
+
+            //冒泡排序
+            for (var j = 0; j < newArr.length; j++) {
+                for (var s = 0; s < newArr.length - j; s++) {
+                    if (newArr[s] > newArr[s + 1]) {
+                        var one = newArr[s];
+                        newArr[s] = newArr[s + 1];
+                        newArr[s + 1] = one;
+                    }
+                }
+            }
+            console.log(newArr);
+
+            //K个元素放入数组
+            for (var z = 0; z < k; z++) {
+                arr2.push(newArr[z]);
+            }
+            return arr2;
+        };
+
+        console.log(getLeastNumbers([3, 1, 1, 4], 2));
+        console.log(getLeastNumbers([2,6,6,3,1,0,0,1,89], 10));
+
+    </script>
+</body>
+
+</html>
